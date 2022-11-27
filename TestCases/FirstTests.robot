@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../Resources/MainPage.robot
+Test Setup    Open My Browser    ${SiteUrl}    ${Browser}
+Test Teardown    Close Browser
 
 *** Variables ***
 ${SiteUrl}    http://doz.pl
@@ -10,64 +12,93 @@ ${Browser}    chrome
 *** Test Cases ***
 Test Main Logo
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is MainLogo Present
     Click MainLogo
-    Close Browser
 
 Test BestSelery Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is BestSellery Link Present
     Click BestSellery
-    Close Browser
 
 Test Nowosci Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Nowosci Link Present
     Click Nowosci
-    Close Browser
 
 Test Wyspszedaz Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Wyspszedaz Link Present
     Click Wyspszedaz
-    Close Browser
 
 Test KrotkieDaty Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is KrotkieDaty Link Present
     Click KrotkieDaty
-    Close Browser
 
 Test Szukac Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Szukac Link Present
     Click Szukac
-    Close Browser
 
 Test Koszyk Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Koszyk Link Present
     Click Koszyk
-    Close Browser
 
 Test Konto Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Konto Link Present
     Click Konto
-    Close Browser
 
 Test Menu Link
     [Tags]    site_header_main
-    Open My Browser    ${SiteUrl}    ${Browser}
     Is Menu Link Present
     Click Menu
-    Close Browser
 
+Test BlackWeek Link
+    [Tags]    slideshow_dot_wrapper
+    Is BlackWeek Link Present
+    Click BlackWeek
+    Is BlackWeek Img Present
+    Click BlackWeekLinkAfterClick
+
+Test ZimaZDozpl Link
+    [Tags]    slideshow_dot_wrapper
+    Is ZimaZDozpl Link Present
+    Click ZimaZDozpl
+    Is ZimaZDozpl Img Present
+    Click ZimaZDozplLinkAfterClick
+
+Test DlaMamyIDziecka Link
+    [Tags]    slideshow_dot_wrapper
+    Is DlaMamyIDziecka Link Present
+    Click DlaMamyIDziecka
+    Is DlaMamyIDziecka Img present
+    # if without sleep will error
+    sleep    1
+    Click DlaMamyIDzieckaLinkAfterClick
+
+Test UlgaDlaNog Link
+    [Tags]    slideshow_dot_wrapper
+    Is UlgaDlaNog Link Present
+    Click UlgaDlaNog
+    Is UlgaDlaNog Img Present
+    # if without sleep will error
+    sleep    1
+    Click UlgaDlaNogLinkAfterClick
+
+Test PielegnacjaL Link
+    [Tags]    slideshow_dot_wrapper
+    Is Pielegnacja Link Present
+    Click PielegnacjaL
+    Is PielegnacjaL Img Present
+    # if without sleep will error
+    sleep    1
+    Click PielegnacjaLLinkAfterClick
+
+Test ZycieZCukrzyca Link
+    [Tags]    slideshow_dot_wrapper
+    Is ZycieZCukrzyca Link Present
+    Click ZycieZCukrzyca
+    Is ZycieZCukrzyca Img Present
+    Click ZimaZDozplLinkAfterClick
